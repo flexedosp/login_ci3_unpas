@@ -70,9 +70,11 @@ class Admin extends CI_Controller
             $this->db->delete('user_access_menu', $data);
         }
 
-        $count = 0;
-        $this->db->query("UPDATE `user_access_menu` SET id = $count := ($count+1);");
-        $this->db->query('ALTER TABLE `user_access_menu` auto_increment = 1;');
+        //Reset Auto_increment : failure
+        // $count = 0;
+        // $this->db->query("UPDATE `user_access_menu` SET id = $count := ($count+1);");
+        // $this->db->query("ALTER TABLE `user_access_menu` auto_increment = 1;");
+
         $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">
             Access Changed!
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">

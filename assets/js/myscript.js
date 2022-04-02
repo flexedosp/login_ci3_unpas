@@ -1,8 +1,31 @@
 //Variabel Global
 
 var base_url = "http://localhost/login_ci3/";
+var clicked = 0;
 
 //End of Variabel Global
+
+$('#sidebarToggle').on('click', function(){
+   
+   if(clicked == 0){
+       
+    $('.nav-link span').hide();
+    clicked = 1;
+}else{
+    $('.nav-link span').show();
+    clicked = 0;
+
+   }
+    
+});
+
+
+$('.custom-file-input').on('change', function(){
+    let fileName = $(this).val();
+    $(this).next('.custom-file-label').addClass("selected").html(fileName.split('\\').pop());
+    // $('.img-upload').attr('src', fileName);
+    // alert(fileName);
+});
 
 $('.form-check-input').on('click', function() {
     const menuId = $(this).data('menu');
