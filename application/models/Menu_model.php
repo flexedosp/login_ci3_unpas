@@ -28,15 +28,38 @@ class Menu_model extends CI_Model
     {
         return $this->db->get_where('user_menu', ['id' => $id])->row_array();
     }
+
+    public function getSubmenuById($id)
+    {
+        return $this->db->get_where('user_sub_menu', ['id' => $id])->row_array();
+    }
+
     public function editDataMenu()
     {
 
         $this->db->where('id', $this->input->post('id'));
         return $this->db->update('user_menu', ['menu' => $this->input->post('menu')]);
     }
+    public function editDataSubMenu()
+    {
+        $data = [
+            'menu_id' => $this->input->post('menu_id'),
+            'title' => $this->input->post('title'),
+            'url' => $this->input->post('url'),
+            'icon' => $this->input->post('icon'),
+            'is_active' => $this->input->post('is_active')
+
+        ];
+        $this->db->where('id', $this->input->post('id'));
+        return $this->db->update('user_sub_menu', $data);
+    }
 
     public function deleteMenu($id)
     {
         return $this->db->delete('user_menu', array('id' => $id));
+    }
+    public function deleteDataSubmenu($id)
+    {
+        return $this->db->delete('user_sub_menu', array('id' => $id));
     }
 }

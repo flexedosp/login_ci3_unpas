@@ -27,7 +27,7 @@
 
             <?= $this->session->flashdata('message'); ?>
 
-            <a href="#" class="btn btn-primary mb-3" data-toggle="modal" data-target="#formSubmenuModal"> Add New Submenu</a>
+            <a href="#" class="btn btn-primary mb-3 addNewSubmenuModal" data-toggle="modal" data-target="#formSubmenuModal"> Add New Submenu</a>
 
             <table class="table table-hover">
                 <thead>
@@ -52,8 +52,8 @@
                             <td><?= $sm['icon']; ?></td>
                             <td><?= $sm['is_active']; ?></td>
                             <td>
-                                <a href="<?= base_url('menu/edit/') . $sm['id']; ?>" class="badge badge-success editSubmenu" data-toggle="modal" data-target="#formSubmenuModal" data-id="<?= $sm['id']; ?>"> Edit </a>
-                                <a href="" class="badge badge-danger"> Delete </a>
+                                <a href="<?= base_url('menu/editSubmenu/') . $sm['id']; ?>" class="badge badge-success editSubmenuModal" data-toggle="modal" data-target="#formSubmenuModal" data-id="<?= $sm['id']; ?>"> Edit </a>
+                                <a href="<?= base_url('menu/deleteSubmenu/') . $sm['id']; ?>" class="badge badge-danger deleteButton"> Delete </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -83,6 +83,7 @@
             </div>
             <form action="<?= base_url('menu/submenu'); ?>" method="POST">
                 <div class="modal-body">
+                    <input type="hidden" name="id" id="id">
                     <div class="form-group">
                         <input type="text" class="form-control" id="title" name="title" placeholder="Submenu title">
                     </div>
@@ -102,7 +103,7 @@
                     </div>
                     <div class="form-group">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="1" id="is_active" name="is_active" class="is_active" checked>
+                            <input class="form-check-input" type="checkbox" value="1" id="is_active" name="is_active" class="is_active">
                             <label class="form-check-label" for="is_active">
                                 Active?
                             </label>

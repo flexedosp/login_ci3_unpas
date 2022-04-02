@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2022 at 10:35 AM
+-- Generation Time: Apr 02, 2022 at 08:49 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -133,8 +133,7 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (3, 2, 'Edit Profile', 'user/edit', 'fas fa-user-edit', 1),
 (4, 3, 'Menu Management', 'menu', 'fas fa-folder', 1),
 (5, 3, 'Submenu Management', 'menu/submenu', 'fas fa-folder-open', 1),
-(6, 2, 'Coba', 'coba/coba', 'fab fa-youtube', 1),
-(7, 1, 'Role', 'admin/role', 'fas fa-fw fa-user-tie', 1);
+(6, 1, 'Role', 'admin/role', 'fas fa-fw fa-user-tie', 1);
 
 --
 -- Indexes for dumped tables
@@ -202,7 +201,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

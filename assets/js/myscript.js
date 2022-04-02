@@ -23,17 +23,31 @@ $('.form-check-input').on('click', function() {
 });
 
 $('.formModalTambah').on('click', function(){
-    $('#formMenuModalLabel').html('Tambah Data Mahasiswa');
-    $('.modal-footer button[type=submit]').html('Tambah Data');
+    $('#formMenuModalLabel').html('Add Submenu');
+    $('.modal-footer button[type=submit]').html('Add');
     $('#id').val('');
     $('#menu').val('');
+    
 });
+
+$('.addNewSubmenuModal').on('click', function(){
+    $('#formMenuModalLabel').html('Add Menu');
+    $('.modal-footer button[type=submit]').html('Add');
+    
+    $('#id').val('');
+    $('#menu_id').val('');
+    $('#title').val('');
+    $('#url').val('');
+    $('#icon').val('');
+    // $('#is_active').val('');
+});
+
 
 $('.editMenuModal').on('click', function(){
 //get right here
     $('#formMenuModalLabel').html('Edit Data Menu');
     $('.modal-footer button[type=submit]').html('Edit');
-    $('.modal-content form').attr('action', base_url + '/menu/editMenu');
+    $('.modal-content form').attr('action', base_url + 'menu/editMenu');
 
     const id = $(this).data('id');
 
@@ -48,28 +62,40 @@ $('.editMenuModal').on('click', function(){
             }
     });
 });
+
+
 $('.editSubmenuModal').on('click', function(){
 //get right here
     $('#formMenuModalLabel').html('Edit Sub Menu');
     $('.modal-footer button[type=submit]').html('Edit');
-    $('.modal-content form').attr('action', base_url + '/menu/edit');
+    $('.modal-content form').attr('action', base_url + 'menu/editSubmenu');
 
     const id = $(this).data('id');
 
     $.ajax({
-            url: base_url + 'menu/editdatamenu',
+            url: base_url + 'menu/editDataSubmenu',
             data: {id : id}, // id sebelah kiri adalah data yang akan dikirimkan. Sedangkan id sebelah kanan adalah isi datanya.
             method: 'post',
             dataType: 'json',
             success: function(data){
                 $('#id').val(data.id);
-                $('#menu').val(data.menu);
+                $('#menu_id').val(data.menu_id);
+                $('#title').val(data.title);
+                $('#url').val(data.url);
+                $('#icon').val(data.icon);
+                $('#is_active').prop('checked', function(){
+                    if(data.is_active == 1){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                });
             }
     });
 });
 
 
-$('.tombol-hapus').on('click', function(e) {
+$('.deleteButton').on('click', function(e) {
     e.preventDefault();
     const href = $(this).attr('href');
     Swal.fire({
