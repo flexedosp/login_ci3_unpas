@@ -20,6 +20,12 @@ $('#sidebarToggle').on('click', function(){
 });
 
 
+$('#showCurrentPassword').on('click', function(){
+    $('#currentPassword').attr('type', 'text');
+    $('#showCurrentPassword i').attr('class', 'fas fa-fw fa-eye-slash');
+});
+
+
 $('.custom-file-input').on('change', function(){
     let fileName = $(this).val();
     $(this).next('.custom-file-label').addClass("selected").html(fileName.split('\\').pop());

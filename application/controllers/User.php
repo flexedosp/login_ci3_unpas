@@ -84,4 +84,16 @@ class User extends CI_Controller
             redirect(base_url('user'));
         }
     }
+
+    public function changePassword()
+    {
+        $data['title'] = 'Change Password';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('user/changepassword', $data);
+        $this->load->view('templates/footer');
+    }
 }
