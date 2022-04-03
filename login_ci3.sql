@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2022 at 08:49 AM
+-- Generation Time: Apr 03, 2022 at 09:38 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -43,7 +43,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(1, 'Alghifari Arief Noerwangsa', 'farinoerwangsa@gmail.com', 'default_male.svg', '$2y$10$lUvRP/mQc6N5Dx5bTkSabezijeKcSKn/6saI/vIzKuFP3qqsSpVOG', 1, 1, 1648523056),
+(1, 'Alghifari Arief Noerwangsa', 'farinoerwangsa@gmail.com', 'Hatsune_Miku.jpg', '$2y$10$LdLFLKrjIFScPTv.SjpTrOtN3X6rGlRMDDtSwCP5QSzabAGayKRVm', 1, 1, 1648523056),
 (2, 'Ali Furqon Noerizki', 'alifurqon@gmail.com', 'default_male.svg', '$2y$10$XIgbDbUBi4VZCxWwCEDaoOZz3DQ7FtlZVDATzAb0BTVSY6m9r4e72', 2, 1, 1648632002);
 
 -- --------------------------------------------------------
@@ -66,7 +66,6 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (1, 1, 1),
 (2, 1, 2),
 (3, 2, 2),
-(4, 2, 3),
 (7, 1, 3);
 
 -- --------------------------------------------------------
@@ -133,7 +132,8 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (3, 2, 'Edit Profile', 'user/edit', 'fas fa-user-edit', 1),
 (4, 3, 'Menu Management', 'menu', 'fas fa-folder', 1),
 (5, 3, 'Submenu Management', 'menu/submenu', 'fas fa-folder-open', 1),
-(6, 1, 'Role', 'admin/role', 'fas fa-fw fa-user-tie', 1);
+(6, 1, 'Role', 'admin/role', 'fas fa-fw fa-user-tie', 1),
+(7, 2, 'Change Password', 'user/changepassword', 'fas fa-fw fa-key', 1);
 
 --
 -- Indexes for dumped tables
@@ -201,7 +201,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

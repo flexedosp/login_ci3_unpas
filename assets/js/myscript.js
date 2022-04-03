@@ -2,6 +2,9 @@
 
 var base_url = "http://localhost/login_ci3/";
 var clicked = 0;
+var showCurrentPassword = 0;
+var showPassword1 = 0;
+var showPassword2 = 0;
 
 //End of Variabel Global
 
@@ -21,8 +24,38 @@ $('#sidebarToggle').on('click', function(){
 
 
 $('#showCurrentPassword').on('click', function(){
-    $('#currentPassword').attr('type', 'text');
-    $('#showCurrentPassword i').attr('class', 'fas fa-fw fa-eye-slash');
+    if( showCurrentPassword == 0){
+        $('#currentPassword').attr('type', 'text');
+        $('#showCurrentPassword i').attr('class', 'fas fa-fw fa-eye-slash');
+        showCurrentPassword = 1;
+    }else{
+        $('#currentPassword').attr('type', 'password');
+        $('#showCurrentPassword i').attr('class', 'fas fa-fw fa-eye');
+        showCurrentPassword = 0;
+    }
+});
+
+$('#showNewPassword1').on('click', function(){
+    if( showPassword1 == 0){
+        $('#newPassword1').attr('type', 'text');
+        $('#showNewPassword1 i').attr('class', 'fas fa-fw fa-eye-slash');
+        showPassword1 = 1;
+    }else{
+        $('#newPassword1').attr('type', 'password');
+        $('#showNewPassword1 i').attr('class', 'fas fa-fw fa-eye');
+        showPassword1 = 0;
+    }
+});
+$('#showNewPassword2').on('click', function(){
+    if( showPassword2 == 0){
+        $('#newPassword2').attr('type', 'text');
+        $('#showNewPassword2 i').attr('class', 'fas fa-fw fa-eye-slash');
+        showPassword2 = 1;
+    }else{
+        $('#newPassword2').attr('type', 'password');
+        $('#showNewPassword2 i').attr('class', 'fas fa-fw fa-eye');
+        showPassword2 = 0;
+    }
 });
 
 
